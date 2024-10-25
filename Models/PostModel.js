@@ -26,7 +26,7 @@ const postSchema = new mongoose.Schema(
     image: {
       type: String,
       default:
-        'https://img.freepik.com/premium-photo/purple-gradient-background-with-grainy-effect_84443-4016.jpg',
+        'https://firebasestorage.googleapis.com/v0/b/divulge-blog.appspot.com/o/postimage.png?alt=media&token=be9a05e5-cc30-4b25-8eab-a18f7eb9851a',
     },
     category: {
       type: String,
