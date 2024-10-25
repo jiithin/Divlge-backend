@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-const cors = require("cors");
+
 import userRoutes from './Routes/userRoute.js';
 import authRoutes from './Routes/authRoute.js';
 import postRoutes from './Routes/postRoute.js';
@@ -16,7 +16,7 @@ mongoose.connect(process.env.MONGO).then(()=> {console.log('MongoDB is connected
 
 const app = express();
 const __dirname = path.resolve();
-
+const cors = import("cors");
 
 app.use(express.json());
 app.use(cookieParser());
