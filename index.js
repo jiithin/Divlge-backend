@@ -8,6 +8,7 @@ import postRoutes from './Routes/postRoute.js';
 import commentRoutes from './Routes/commentRoute.js';
 import path from 'path';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -16,7 +17,7 @@ mongoose.connect(process.env.MONGO).then(()=> {console.log('MongoDB is connected
 
 const app = express();
 const __dirname = path.resolve();
-const cors = import("cors");
+
 
 app.use(express.json());
 app.use(cookieParser());
