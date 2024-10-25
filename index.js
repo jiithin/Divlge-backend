@@ -6,7 +6,7 @@ import userRoutes from './Routes/userRoute.js';
 import authRoutes from './Routes/authRoute.js';
 import postRoutes from './Routes/postRoute.js';
 import commentRoutes from './Routes/commentRoute.js';
-
+import path from 'path';
 import cookieParser from 'cookie-parser';
 
 dotenv.config();
@@ -15,7 +15,7 @@ dotenv.config();
 mongoose.connect(process.env.MONGO).then(()=> {console.log('MongoDB is connected')}).catch((err)=>{});
 
 const app = express();
-
+const __dirname = path.resolve();
 
 app.use(express.json());
 app.use(cookieParser());
@@ -30,7 +30,12 @@ app.use('/blog/auth', authRoutes);
 app.use('/blog/post', postRoutes);
 app.use('/blog/comment', commentRoutes);
 
+app.use(express.static(path.join(__dirname, '/frontend/dist')));
 
+//whatever url otherthan user,auth,post,comment its going to run index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
+});
 
 app.use ((err, req, res, next)=>{
     const statusCode=err.statusCode || 500;
