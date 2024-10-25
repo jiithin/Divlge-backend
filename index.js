@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-const cors = require("cors");
+
 import userRoutes from './Routes/userRoute.js';
 import authRoutes from './Routes/authRoute.js';
 import postRoutes from './Routes/postRoute.js';
