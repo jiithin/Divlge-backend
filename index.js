@@ -16,10 +16,11 @@ mongoose.connect(process.env.MONGO).then(()=> {console.log('MongoDB is connected
 
 const app = express();
 const __dirname = path.resolve();
+const cors = require("cors");
 
 app.use(express.json());
 app.use(cookieParser());
-
+app.use(cors({origin: ["http://localhost:5173"], credentials: true,}));
 
 app.listen(3000, ()=>{
     console.log('Server is running on port 3000!!');
