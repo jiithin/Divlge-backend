@@ -66,7 +66,7 @@ export const signin = async (req, res, next) => {
       }
 
       // Use bcrypt.compare for asynchronous password comparison
-      const validPassword = await bcrypt.compare(password, validUser .password);
+      const validPassword = await bcryptjs.compare(password, validUser .password);
       if (!validPassword) {
           return next(errorHandler(401, 'Invalid email or password'));
       }
