@@ -21,7 +21,7 @@ const __dirname = path.resolve();
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({origin: ["https://divulge.onrender.com","https://thedivulge.vercel.app"], credentials: true,}));
+app.use(cors({origin: ["https://divulge.onrender.com","https://thedivulge.vercel.app","http://localhost:5173"], credentials: true,}));
 
 app.listen(3000, ()=>{
     console.log('Server is running on port 3000!!');
